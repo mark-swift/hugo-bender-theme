@@ -1,0 +1,24 @@
+{{ "<!-- Header section -->" | safeHTML }}
+<header id="header">
+  <label for="show-menu" class="show-menu">
+    <i class="fa fa-bars"></i> Menu
+  </label>
+  <input type="checkbox" id="show-menu" role="button">
+
+  <nav id="menu">
+
+    <a href="/">Home</a>
+
+    {{ with .Site.Params.projects }}
+    <a href="/{{ .path }}">{{ .title }}</a>
+    {{ end }}
+
+    {{ with .Site.Params.about }}
+    <a href="/{{ .path }}">{{ .title }}</a>
+    {{ end }}
+    
+    {{ with .Site.Params.contact }}
+    <a href="/{{ .path }}">{{ .title }}</a>
+    {{ end }}
+  </nav>
+</header>

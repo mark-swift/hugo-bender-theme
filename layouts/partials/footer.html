@@ -1,0 +1,6 @@
+{{ "<!-- Footer section -->" | safeHTML }}
+<div id="footer">
+    {{ with .Site.Params.copyright }}
+    <p>&copy; Copyright {{ now.Year }} {{ .holder }}</p>
+    {{ end }}
+</div>

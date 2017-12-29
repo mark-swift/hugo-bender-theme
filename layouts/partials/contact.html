@@ -1,0 +1,57 @@
+{{ "<!-- Form section -->" | safeHTML }}
+<section id="contact">
+
+    <div class="content">
+        {{ .Content }}
+    </div>
+
+    <div class="container">  
+      <form id="contact" action="https://formspree.io/{{ with .Site.Params.email }}{{ . }}{{ end }}" method="POST">
+        
+        {{ with .Site.Params.contact.header }}
+        <h3 id="form-title">{{ . }}</h3>
+        {{ end }}
+
+        {{ with .Site.Params.contact.subheader }}
+        <h4 id="form-subtitle">{{ . }}</h4>
+        {{ end }}
+
+
+        {{ with .Site.Params.contact.name }}
+        <fieldset>
+          <input name="name" placeholder="{{ . }}" type="text" tabindex="1" required autofocus>
+        </fieldset>
+        {{ end }}
+
+        {{ with .Site.Params.contact.email }}
+        <fieldset>
+          <input name="email" placeholder="{{ . }}" type="email" tabindex="2" required autofocus>
+        </fieldset>
+        {{ end }}
+
+        {{ with .Site.Params.contact.phone }}
+        <fieldset>
+          <input name="phone" placeholder="{{ . }}" type="tel" tabindex="3" autofocus>
+        </fieldset>
+        {{ end }}
+
+        {{ with .Site.Params.contact.company }}
+        <fieldset>
+          <input name="company" placeholder="{{ . }}" type="text" tabindex="4" autofocus>
+        </fieldset>
+        {{ end }}
+
+        {{ with .Site.Params.contact.message }}
+        <fieldset>
+          <textarea name="message" placeholder="{{ . }}" tabindex="5" autofocus required=""></textarea>
+        </fieldset>
+        {{ end }}
+
+        {{ with .Site.Params.contact.buttonText }}
+        <fieldset>
+          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">{{ . }}</button>
+        </fieldset>
+        {{ end }}
+      </form>
+    </div>
+</section>

@@ -1,0 +1,15 @@
+<div class="spacer"></div>
+<div id="portfolio">
+
+    {{ range .Site.Data.projects.projects }}
+    <a href="{{ .name }}/" class="img-wrap">
+        <img class="img-main" src="../{{ .cover }}">
+        <div class="img-description-wrap">
+            <div class="img-description">
+                {{ .title }}
+            </div>
+        </div>
+    </a>
+    {{ end }}
+
+</div>
